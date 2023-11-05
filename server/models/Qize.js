@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const PostSchema = mongoose.Schema(
+const QizeSchema = mongoose.Schema(
 	{
 		title: {
 			type: String,
@@ -33,6 +33,6 @@ const PostSchema = mongoose.Schema(
 	{ timestamps: true }
 )
 
-const Post = mongoose.model('Post', PostSchema)
+const Qize = mongoose.model('Qize', QizeSchema)
 
-module.exports = Post
+module.exports = Qize

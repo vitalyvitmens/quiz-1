@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Layout } from './components'
 import {
 	LoginPage,
@@ -7,8 +8,18 @@ import {
 	EditTestPage,
 	TestPage,
 } from './pages'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useEffect } from 'react'
+import { getMe } from './redux/features/auth/authSlice'
 
 export const App = () => {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(getMe())
+	}, [dispatch])
+
 	return (
 		<Layout>
 			<Routes>
@@ -18,6 +29,8 @@ export const App = () => {
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/login" element={<LoginPage />} />
 			</Routes>
+
+			<ToastContainer position="bottom-right" />
 		</Layout>
 	)
 }

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const roles = require('../constants/roles')
 
 const UserSchema = mongoose.Schema(
 	{
@@ -12,12 +11,9 @@ const UserSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		role: {
-			type: Number,
-			default: roles.USER,
-		},
 		qizes: [{ type: mongoose.Types.ObjectId, ref: 'Qize' }],
 	},
+
 	{ timestamps: true }
 )
 

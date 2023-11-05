@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:6001",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@colisweb/rescript-react-icons-ai": "^1.0.0",
     "@reduxjs/toolkit": "^1.9.6",

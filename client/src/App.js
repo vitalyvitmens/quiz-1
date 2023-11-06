@@ -5,7 +5,7 @@ import {
 	LoginPage,
 	MainPage,
 	RegisterPage,
-	EditTestPage,
+	EditPage,
 	TestPage,
 } from './pages'
 import { ToastContainer } from 'react-toastify'
@@ -25,7 +25,7 @@ export const App = () => {
 			<Routes>
 				<Route path="/" element={<MainPage />} />
 				<Route path="/:id" element={<TestPage />} />
-				<Route path="/:id/edit" element={<EditTestPage />} />
+				<Route path="/:id/edit" element={<EditPage />} />
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/login" element={<LoginPage />} />
 			</Routes>

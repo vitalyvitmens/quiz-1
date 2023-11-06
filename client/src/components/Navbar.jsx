@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { checkIsAuth, logout } from '../redux/features/auth/authSlice'
 import { toast } from 'react-toastify'
+import { Button } from './Button'
 
 export const Navbar = () => {
 	const isAuth = useSelector(checkIsAuth)
@@ -22,8 +23,8 @@ export const Navbar = () => {
 
 	return (
 		<div className="flex py-4 justify-between items-center">
-			<span className="flex justify-center items-center w-6 h-6 bg-gray-600 text-xs text-white rounded-sm">
-				E
+			<span className="flex justify-center items-center px-2 text-green-800 font-extrabold text-3xl">
+				QUIZ 1.0
 			</span>
 
 			{isAuth ? (
@@ -74,13 +75,13 @@ export const Navbar = () => {
 				</ul>
 			)}
 
-			<div className="flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2">
-				{isAuth ? (
-					<button onClick={logoutHandler}>Выйти</button>
-				) : (
+			{isAuth ? (
+				<Button onClick={logoutHandler}>Выйти</Button>
+			) : (
+				<Button bgColor="bg-green-800">
 					<Link to="/login">Войти</Link>
-				)}
-			</div>
+				</Button>
+			)}
 		</div>
 	)
 }

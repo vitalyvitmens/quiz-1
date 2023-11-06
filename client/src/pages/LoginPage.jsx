@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { checkIsAuth, loginUser } from '../redux/features/auth/authSlice'
 import { toast } from 'react-toastify'
+import { Button } from '../components'
 
 export const LoginPage = () => {
 	const [login, setLogin] = useState('')
@@ -59,18 +60,14 @@ export const LoginPage = () => {
 			</label>
 
 			<div className="flex gap-8 justify-center mt-4">
-				<button
+				<Button
 					type="submit"
 					disabled={!login || !password}
 					onClick={handleSubmit}
-					className={
-						login && password
-							? 'flex justify-center items-center text-xs text-white py-2 px-4 rounded-lg bg-green-700'
-							: 'flex justify-center items-center text-xs text-gray-300 py-2 px-4 rounded-lg bg-gray-400'
-					}
+					bgColor={login && password ? 'bg-green-700' : 'bg-gray-400'}
 				>
 					Войти
-				</button>
+				</Button>
 				<Link
 					to="/register"
 					className="flex justify-center items-center text-xs text-blue-800"

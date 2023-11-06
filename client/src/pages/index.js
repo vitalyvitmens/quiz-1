@@ -1,5 +1,5 @@
 export * from './LoginPage'
 export * from './MainPage'
 export * from './RegisterPage'
-export * from './EditTestPage'
+export * from './EditPage'
 export * from './TestPage'

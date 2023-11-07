@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { checkIsAuth, loginUser } from '../redux/features/auth/authSlice'
 import { toast } from 'react-toastify'
 import { Button } from '../components'
+import { loginUserAsync } from '../redux/actions'
+import { selectCheckIsAuth } from '../redux/selectors'
 
 export const LoginPage = () => {
 	const [login, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 
 	const { status } = useSelector((state) => state.auth)
-	const isAuth = useSelector(checkIsAuth)
+	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
@@ -21,7 +22,7 @@ export const LoginPage = () => {
 
 	const handleSubmit = () => {
 		try {
-			dispatch(loginUser({ login, password }))
+			dispatch(loginUserAsync({ login, password }))
 			setLogin('')
 			setPassword('')
 		} catch (error) {

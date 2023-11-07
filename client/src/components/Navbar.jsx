@@ -1,12 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { checkIsAuth, logout } from '../redux/features/auth/authSlice'
+import { logout } from '../redux/actions'
 import { toast } from 'react-toastify'
 import { Button } from './Button'
+import { selectCheckIsAuth } from '../redux/selectors'
 
 export const Navbar = () => {
-	const isAuth = useSelector(checkIsAuth)
+	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
@@ -15,7 +16,7 @@ export const Navbar = () => {
 	}
 
 	const logoutHandler = () => {
-		dispatch(logout())
+		dispatch(logout)
 		window.localStorage.removeItem('token')
 		navigate('/login')
 		toast('Вы вышли из системы')

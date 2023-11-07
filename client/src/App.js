@@ -11,13 +11,13 @@ import {
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useEffect } from 'react'
-import { getMe } from './redux/features/auth/authSlice'
+import { getMeAsync } from './redux/actions'
 
 export const App = () => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(getMe())
+		dispatch(getMeAsync())
 	}, [dispatch])
 
 	return (

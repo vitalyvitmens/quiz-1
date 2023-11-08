@@ -14,7 +14,6 @@ export const LoginPage = () => {
 	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-  console.log('isAuth from LoginPage:', isAuth)
 
 	useEffect(() => {
 		if (status) toast(status)

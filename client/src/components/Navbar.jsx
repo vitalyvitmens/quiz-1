@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-  console.log('isAuth from Navbar:', isAuth)
+  // console.log('isAuth from Navbar:', isAuth)
 
 	const activeStyles = {
 		color: 'white',

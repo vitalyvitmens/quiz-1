@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from './action-type'
 
-export const registerUser = (registerUserData) => ({
+export const registerUser = (data) => ({
 	type: ACTION_TYPE.REGISTER_USER,
-	payload: registerUserData,
+	payload: data,
 })

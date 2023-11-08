@@ -9,7 +9,6 @@ export const loginUserAsync = ({ login, password }) => {
 		})
 
 		if (data.token) window.localStorage.setItem('token', data.token)
-		console.log('loginUserData:', data)
 
 		return dispatch(loginUser(data))
 	}

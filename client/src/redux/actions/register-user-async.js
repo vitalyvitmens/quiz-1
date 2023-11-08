@@ -9,7 +9,6 @@ export const registerUserAsync = ({ login, password }) => {
 		})
 
 		if (data.token) window.localStorage.setItem('token', data.token)
-		console.log('registerUserData:', data)
 
 		return dispatch(registerUser(data))
 	}

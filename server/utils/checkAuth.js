@@ -15,7 +15,10 @@ const checkAuth = (req, res, next) => {
 			console.log(`Ошибка: ${error}, нет доступа`)
 		}
 	} else {
-		res.json({ message: 'Нет доступа' })
+		res.json({
+			message:
+				'Нет доступа! Если есть аккаунт авторизуйтесь, нет аккаунта регистрируйтесь',
+		})
 	}
 }
 

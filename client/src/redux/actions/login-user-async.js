@@ -1,25 +1,21 @@
 import { loginUser } from './login-user'
 import axios from '../../utils/axios'
 
-export const loginUserAsync = () => {
+export const loginUserAsync = ({ login, password }) => {
 	return async (dispatch) => {
-		const response = await fetch(
-			'auth/login',
-			async ({ login, password }) => {
-				try {
-					const { data } = await axios.post('/auth/login', {
-						login,
-						password,
-					})
+		// const response = await axios.post('/auth/login', {
+		//     method: 'POST',
+		//     headers: { 'Content-Type': 'application/json' },
+		//     body: JSON.stringify({ login, password }),
+		//   })
+		const { data } = await axios.post('/auth/login', {
+			login,
+			password,
+		})
 
-					if (data.token) window.localStorage.setItem('token', data.token)
-					return data
-				} catch (error) {
-					console.log(error)
-				}
-			}
-		)
-		const loginUserData = await response.json()
+		if (data.token) window.localStorage.setItem('token', data.token)
+
+		const loginUserData = await data.json()
 		return dispatch(loginUser(loginUserData))
 	}
 }
@@ -33,7 +29,6 @@ export const loginUserAsync = () => {
 // 		return dispatch(getMe(data))
 // 	}
 // }
-
 
 // export const loginUserAsync = () => {
 // 	return async (dispatch) => {

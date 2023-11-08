@@ -14,6 +14,7 @@ export const RegisterPage = () => {
 	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
+  console.log('isAuth from RegisterPage:', isAuth)
 
 	useEffect(() => {
 		if (status) toast(status)

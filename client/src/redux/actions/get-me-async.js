@@ -3,11 +3,19 @@ import { getMe } from './get-me'
 
 export const getMeAsync = () => {
 	return async (dispatch) => {
-		const response = await axios.get(`/auth/me`, {
+		const { data } = await axios.get(`/auth/me`, {
 			method: 'GET',
 		})
-		// const data = await response.json()
-		return dispatch(getMe(response))
+		try {
+			return data
+		} catch (error) {
+			console.log(error)
+		}
+		console.log('data', data)
+		console.log('data.data.token', data.data.token)
+		console.log('data.data.user._id', data.data.user._id)
+		console.log('data.status', data.status)
+		return dispatch(getMe(data))
 	}
 }
 

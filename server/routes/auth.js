@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { register, login, getMe } = require('../controllers/auth')
-const checkAuth = require('../utils')
+const checkAuth = require('../utils/checkAuth')
 
 const router = Router()
 

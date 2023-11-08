@@ -7,11 +7,11 @@ export const getMeAsync = () => {
 			method: 'GET',
 		})
 		try {
-			console.log('getMeData:', getMeData)
-			console.log('getMeData.data.token:', getMeData.data.token)
-			console.log('getMeData.data.user._id:', getMeData.data.user)
-			console.log('getMeData.status:', getMeData.status)
-			return getMeData
+			// console.log('getMeData:', getMeData)
+			// console.log('getMeData.data.token:', getMeData.data.token)
+			// console.log('getMeData.data.user._id:', getMeData.data.user._id)
+			// console.log('getMeData.status:', getMeData.status)
+			return dispatch(getMe(getMeData))
 		} catch (error) {
 			console.log(error)
 		}

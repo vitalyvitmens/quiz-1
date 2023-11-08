@@ -4,13 +4,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '../components'
 import { loginUserAsync } from '../redux/actions'
-import { selectCheckIsAuth } from '../redux/selectors'
+import { selectCheckIsAuth, selectStatus } from '../redux/selectors'
 
 export const LoginPage = () => {
 	const [login, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 
-	const { status } = useSelector(({app}) => app)
+	const status = useSelector(selectStatus)
 	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()

@@ -11,7 +11,7 @@ const UserSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		qizes: [{ type: mongoose.Types.ObjectId, ref: 'Qize' }],
+		quizes: [{ type: mongoose.Types.ObjectId, ref: 'Quiz' }],
 	},
 
 	{ timestamps: true }

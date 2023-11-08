@@ -3,20 +3,20 @@ import axios from '../../utils/axios'
 
 export const loginUserAsync = ({ login, password }) => {
 	return async (dispatch) => {
-		// const response = await axios.post('/auth/login', {
-		//     method: 'POST',
-		//     headers: { 'Content-Type': 'application/json' },
-		//     body: JSON.stringify({ login, password }),
-		//   })
+		// const loginUserData = await axios.post('/auth/login', {
+		// 	method: 'POST',
+		// 	headers: { 'Content-Type': 'application/json' },
+		// 	body: JSON.stringify({ login, password }),
+		// })
 		const { data } = await axios.post('/auth/login', {
 			login,
 			password,
 		})
 
 		if (data.token) window.localStorage.setItem('token', data.token)
+		console.log('loginUserData:', data)
 
-		const loginUserData = await data.json()
-		return dispatch(loginUser(loginUserData))
+		return dispatch(loginUser(data))
 	}
 }
 

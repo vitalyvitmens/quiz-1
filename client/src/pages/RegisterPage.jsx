@@ -10,7 +10,7 @@ export const RegisterPage = () => {
 	const [login, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 
-	const { status } = useSelector((state) => state.auth)
+	const { status } = useSelector(({app}) => app)
 	const isAuth = useSelector(selectCheckIsAuth)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()

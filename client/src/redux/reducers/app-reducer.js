@@ -2,7 +2,7 @@ import { ACTION_TYPE } from '../actions'
 
 const initialAppState = {
 	user: null,
-	token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDhkNTUwMDdjZDhhYjZlODFkNzQwMSIsImlhdCI6MTY5OTQyOTg0MywiZXhwIjoxNzAyMDIxODQzfQ.W2nn-5rh9AFtPGLalIVeJELyREEGMU9hLiyswOyURuk',
+	token: null,
 	isLoading: false,
 	status: null,
 }
@@ -35,8 +35,8 @@ export const appReducer = (state = initialAppState, action) => {
 				...action.payload,
 				isloading: false,
 				status: action.payload?.status,
-				user: action.payload.data?.user._id,
-				token: action.payload.data?.token,
+				user: action.payload?.data.user,
+				token: action.payload?.data.token,
 			}
 
 		case ACTION_TYPE.LOGOUT:

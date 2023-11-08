@@ -3,33 +3,18 @@ import { getMe } from './get-me'
 
 export const getMeAsync = () => {
 	return async (dispatch) => {
-		const { data } = await axios.get(`/auth/me`, {
+		const getMeData = await axios.get(`/auth/me`, {
 			method: 'GET',
 		})
 		try {
-			return data
+			console.log('getMeData:', getMeData)
+			console.log('getMeData.data.token:', getMeData.data.token)
+			console.log('getMeData.data.user._id:', getMeData.data.user)
+			console.log('getMeData.status:', getMeData.status)
+			return getMeData
 		} catch (error) {
 			console.log(error)
 		}
-		console.log('data', data)
-		console.log('data.data.token', data.data.token)
-		console.log('data.data.user._id', data.data.user._id)
-		console.log('data.status', data.status)
-		return dispatch(getMe(data))
+		return dispatch(getMe(getMeData))
 	}
 }
-
-// export const getMeAsync = () => {
-// 	return async (dispatch) => {
-// 		const response = await fetch('auth/getMe', async () => {
-// 			try {
-// 				const { data } = await axios.get('/auth/me')
-// 				return data
-// 			} catch (error) {
-// 				console.log(error)
-// 			}
-// 		})
-// 		const data = await response.json()
-// 		return dispatch(getMe(data))
-// 	}
-// }

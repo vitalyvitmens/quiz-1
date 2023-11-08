@@ -16,20 +16,20 @@ const register = async (req, res) => {
 
 		const passwordHash = await bcrypt.hash(password, 10)
 
-		const newUser = User({
+		const user = User({
 			login,
 			password: passwordHash,
 		})
 
-		const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+		const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
 			expiresIn: '30d',
 		})
 
-		await newUser.save()
+		await user.save()
 
 		res.json({
 			token,
-			newUser,
+			user,
 			message: `Пользователь с логином: ${login} создан`,
 		})
 	} catch (error) {
@@ -81,8 +81,9 @@ const getMe = async (req, res) => {
 		})
 
 		res.json({
-			user,
 			token,
+			user,
+			message: `Пользователь с логином: ${user.login} авторизован`,
 		})
 	} catch (error) {
 		res.json({ message: `Ошибка: ${error}, нет доступа` })

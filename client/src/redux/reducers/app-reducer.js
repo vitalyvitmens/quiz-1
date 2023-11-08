@@ -11,9 +11,7 @@ export const appReducer = (state = initialAppState, action) => {
 	switch (action.type) {
 		case ACTION_TYPE.REGISTER_USER:
 			return {
-				...state,
-				...action.payload,
-				isloading: false,
+        ...state,
 				status: action.payload?.message,
 				user: action.payload.user?._id,
 				token: action.payload?.token,
@@ -21,9 +19,7 @@ export const appReducer = (state = initialAppState, action) => {
 
 		case ACTION_TYPE.LOGIN_USER:
 			return {
-				...state,
-				...action.payload,
-				isloading: false,
+        ...state,
 				status: action.payload?.message,
 				user: action.payload.user?._id,
 				token: action.payload?.token,
@@ -31,9 +27,7 @@ export const appReducer = (state = initialAppState, action) => {
 
 		case ACTION_TYPE.GET_ME:
 			return {
-				...state,
-				...action.payload,
-				isloading: false,
+        ...state,
         status: action.payload?.message,
 				user: action.payload.user?._id,
 				token: action.payload?.token,
